@@ -50,6 +50,18 @@
 	?>
 	</div>
 </div>
+<div>
+<p>Tag cloud begin</p>
+<ul id="tagcloud">
+<?php
+	echo $this->TagCloud->display($tags, array(
+		'before' => '<li size="%size%" class="tag">',
+		'after' => '</li>'
+	));
+?>
+</ul>
+<p>Tag cloud end</p>
+</div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
