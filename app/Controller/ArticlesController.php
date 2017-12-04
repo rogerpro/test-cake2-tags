@@ -26,7 +26,6 @@ class ArticlesController extends AppController {
 		$this->Article->recursive = 0;
 		$this->set('articles', $this->Paginator->paginate());
 		
-		debug($this->Article->Tagged);
 		$this->set('tags', $this->Article->Tagged->find('cloud', array('limit' => 10)));
 	}
 
