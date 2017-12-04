@@ -15,6 +15,8 @@ class ArticlesController extends AppController {
  */
 	public $components = array('Paginator');
 
+	public $helpers = array('Tags.TagCloud');
+	
 /**
  * index method
  *
@@ -23,6 +25,9 @@ class ArticlesController extends AppController {
 	public function index() {
 		$this->Article->recursive = 0;
 		$this->set('articles', $this->Paginator->paginate());
+		
+		debug($this->Article->Tagged);
+		$this->set('tags', $this->Article->Tagged->find('cloud', array('limit' => 10)));
 	}
 
 /**
